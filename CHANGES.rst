@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.2 (unreleased)
+0.4.2 (2015-08-18)
 ------------------
 
 - New way to get if multilingual site or not for vocabulary. Indeed, plone.app.multilingual 
