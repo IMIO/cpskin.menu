@@ -4,7 +4,9 @@ Changelog
 0.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- New way to get if multilingual site or not for vocabulary. Indeed, plone.app.multilingual 
+  may be in buildout but not installed on Plone.
+  [bsuttor]
 
 
 0.4.1 (2015-03-17)
