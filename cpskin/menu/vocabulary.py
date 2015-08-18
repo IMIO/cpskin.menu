@@ -8,14 +8,6 @@ from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-import pkg_resources
-
-try:
-    pkg_resources.get_distribution('plone.app.multilingual')
-except pkg_resources.DistributionNotFound:
-    HAS_MULTILINGUAL = False
-else:
-    HAS_MULTILINGUAL = True
 
 
 def safe_encode(term):
@@ -31,6 +23,7 @@ class LastLevelMenuVocabulary(object):
 
     def __call__(self, context, query=None):
         self.context = context
+
         result = [(b.getObject(), b.getPath()) for b in self.get_brains()]
         filtered_result = [(o.title, p) for o, p
                            in sorted(result, reverse=True)
@@ -44,7 +37,6 @@ class LastLevelMenuVocabulary(object):
             for title, path in sorted_result
             if query is None or safe_encode(query) in safe_encode(title)
         ]
-
         return SimpleVocabulary(items)
 
     def is_last_level(self, path, obj):
@@ -64,7 +56,10 @@ class LastLevelMenuVocabulary(object):
         return (len(root_path) + 2, len(root_path) + 3)
 
     def _is_multilingual_site(self):
-        if HAS_MULTILINGUAL is False:
+        if not getattr(self, 'has_multilingual', None):
+            portal = api.portal.get()
+            self.has_multilingual = portal.portal_quickinstaller.isProductInstalled('plone.app.multilingual')
+        if self.has_multilingual is False:
             return False
         catalog = api.portal.get_tool('portal_catalog')
         return len(catalog(portal_type='LRF')) > 0
