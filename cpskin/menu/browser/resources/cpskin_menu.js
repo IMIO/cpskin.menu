@@ -5,6 +5,7 @@ $( document ).ready(function() {
 
     // Toggle between menu clicked
     var clickable_menu_selector = '#portal-globalnav li:not(#portaltab-index_html) a';
+    // Click on first level menu
     $(clickable_menu_selector).each(function(){
         $(this).click(function() {
 
@@ -21,4 +22,15 @@ $( document ).ready(function() {
             return false;
         })
     });
+
+    // Click outside of the menu
+    $(document).click(function(event) {
+        if(!$(event.target).closest('ul.sf-menu').length) {
+            if($('ul.sf-menu').is(":visible")) {
+                $('ul.sf-menu').each(function(){
+                    $(this).hide();
+                });
+            }
+        }
+    })
 });
