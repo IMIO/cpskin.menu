@@ -4,7 +4,8 @@ Changelog
 0.4.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Close level 2 menu on outside click.
+  [schminitz]
 
 
 0.4.2 (2015-08-18)
