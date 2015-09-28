@@ -13,7 +13,7 @@
         remove="True"
         />
 
-    <javascript id="++resource++cpskin.menu.resources/cpskin_not_persistant.js"
+    <javascript id="++resource++cpskin.menu.resources/cpskin_not_persistent.js"
         remove="True"
         />
 

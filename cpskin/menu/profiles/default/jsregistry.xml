@@ -16,9 +16,9 @@
                 enabled="True" expression="not:python:portal.portal_registry['cpskin.core.interfaces.ICPSkinSettings.load_page_menu']" inline="False"
                 />
 
-    <javascript id="++resource++cpskin.menu.resources/cpskin_not_persistant.js"
+    <javascript id="++resource++cpskin.menu.resources/cpskin_not_persistent.js"
                 cacheable="True" compression="safe" cookable="True"
-                enabled="True" expression="not:python:portal.portal_registry['cpskin.core.interfaces.ICPSkinSettings.sub_menu_persistance']" inline="False"
+                enabled="True" expression="not:python:portal.portal_registry['cpskin.core.interfaces.ICPSkinSettings.sub_menu_persistence']" inline="False"
             />
 
     <javascript id="++resource++cpskin.menu.resources/cpskin_submenu.js"
