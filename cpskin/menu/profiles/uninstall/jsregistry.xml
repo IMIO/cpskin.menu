@@ -13,6 +13,10 @@
         remove="True"
         />
 
+    <javascript id="++resource++cpskin.menu.resources/cpskin_not_persistant.js"
+        remove="True"
+        />
+
     <javascript id="++resource++cpskin.menu.resources/modernizr.min.js"
         remove="True"
         />
