@@ -25,6 +25,7 @@ class TestMenu(unittest.TestCase):
     def test_menu_portal_tabs(self):
         viewlet = CpskinMenuViewlet(self.portal, self.request, None, None)
         viewlet.update()
+
         self.assertTrue(viewlet.is_homepage)
         menus = viewlet.superfish_portal_tabs()
         self.assertEqual(len(menus), 2)
