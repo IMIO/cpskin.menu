@@ -66,6 +66,7 @@ cached_method_id = 'cpskin.menu.browser.menu.superfish_portal_tabs'
 
 
 def invalidate_menu(context):
+    print "INVALIDATE MENU"
     request = getRequest()
     if request is None:  # when plone site is created
         request = context.REQUEST
