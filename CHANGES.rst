@@ -4,8 +4,8 @@ Changelog
 0.4.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Add persistence to submenu using cpskin parameter (affinitic #6267)
+  [schminitz]
 
 0.4.3 (2015-09-28)
 ------------------
