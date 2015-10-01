@@ -205,7 +205,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         tabindex = self._calculate_tabindex()
 
         # We do not need to calculate menu if not in a theme view
-        if self.data and self._is_in_theme:
+        if self.data:  # and self._is_in_theme:
             menu = u""
 
             # Do not render menu at root page in load_page_menu mode
