@@ -4,7 +4,7 @@ Changelog
 0.4.5 (unreleased)
 ------------------
 
-- Fixing test.
+- Fixing tests.
   [bsuttor, schminitz]
 
 
