@@ -4,6 +4,9 @@ Changelog
 0.4.5 (unreleased)
 ------------------
 
+- Fixing cpskin.policy test.
+  [bsuttor]
+
 - Fixing tests.
   [bsuttor, schminitz]
 

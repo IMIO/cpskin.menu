@@ -450,7 +450,15 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
 
     def _is_load_page_menu(self):
         portal_registry = getToolByName(self.context, 'portal_registry')
-        return portal_registry['cpskin.core.interfaces.ICPSkinSettings.load_page_menu']
+        record = 'cpskin.core.interfaces.ICPSkinSettings.load_page_menu'
+        # if record in portal_registry.records:
+        #     return portal_registry[record]
+        # else:
+        #     return False
+        try:
+            return portal_registry[record]
+        except:
+            return False
 
 
 def getNavigationRoot(context):
