@@ -4,7 +4,7 @@ from zope.component import queryUtility
 from plone.uuid.interfaces import IUUID
 from plone import api
 from cpskin.menu.testing import CPSKIN_MENU_INTEGRATION_TESTING
-from cpskin.menu.browser.menu import (CpskinMenuViewlet, cache_key,
+from cpskin.menu.browser.menu import (CpskinMenuViewlet,
                                       invalidate_menu)
 from plone.memoize.interfaces import ICacheChooser
 from cpskin.menu.browser.menu import cache_key_desktop

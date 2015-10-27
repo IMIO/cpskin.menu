@@ -2,11 +2,8 @@
 import unittest2 as unittest
 from zope.component import getUtility
 from zope.ramcache.interfaces.ram import IRAMCache
-from plone.uuid.interfaces import IUUID
-from plone import api
 from cpskin.menu.testing import CPSKIN_MENU_LOAD_PAGE_INTEGRATION_TESTING
-from cpskin.menu.browser.menu import (CpskinMenuViewlet, cache_key,
-                                      invalidate_menu)
+from cpskin.menu.browser.menu import CpskinMenuViewlet
 
 
 def get_cache_miss():
