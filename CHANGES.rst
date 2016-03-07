@@ -4,6 +4,9 @@ Changelog
 0.4.5 (unreleased)
 ------------------
 
+- Fix `Unicode Decode Error` in vocabulary.
+  [bsuttor]
+
 - Fixing cpskin.policy tests.
   [bsuttor]
 
