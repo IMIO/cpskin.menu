@@ -25,17 +25,18 @@ class LastLevelMenuVocabulary(object):
         self.context = context
 
         result = [(b.getObject(), b.getPath()) for b in self.get_brains()]
-        filtered_result = [(o.title, p) for o, p
+        filtered_result = [(safe_encode(o.title), safe_encode(p)) for o, p
                            in sorted(result, reverse=True)
                            if self.is_last_level(p, o)]
         categories = [(b.getObject(), b.getPath()) for b in self.get_categories()]
-        sorted_cat = [(o.title, p) for o, p in sorted(categories, reverse=True)]
+        sorted_cat = [(safe_encode(o.title), safe_encode(p)) for o, p
+                      in sorted(categories, reverse=True)]
         filtered_result = filtered_result + sorted_cat
         sorted_result = sorted(filtered_result)
         items = [
-            SimpleTerm(path, b2a_qp(safe_encode(path)), safe_unicode(title))
+            SimpleTerm(path, b2a_qp(path), title)
             for title, path in sorted_result
-            if query is None or safe_encode(query) in safe_encode(title)
+            if query is None or safe_encode(query) in title
         ]
         return SimpleVocabulary(items)
 
