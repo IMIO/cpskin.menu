@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.5 (unreleased)
+0.4.5 (2016-03-08)
 ------------------
 
 - Fix `Unicode Decode Error` in vocabulary.
