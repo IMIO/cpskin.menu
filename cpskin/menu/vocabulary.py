@@ -33,8 +33,9 @@ class LastLevelMenuVocabulary(object):
                       in sorted(categories, reverse=True)]
         filtered_result = filtered_result + sorted_cat
         sorted_result = sorted(filtered_result)
+
         items = [
-            SimpleTerm(path, b2a_qp(path), title)
+            SimpleTerm(path, b2a_qp(path), safe_unicode(title))
             for title, path in sorted_result
             if query is None or safe_encode(query) in title
         ]
