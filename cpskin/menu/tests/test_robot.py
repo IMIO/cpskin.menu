@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone.testing import layered
+from plone.app.testing import ROBOT_TEST_LEVEL
 from cpskin.menu.testing import CPSKIN_MENU_ROBOT_TESTING, CPSKIN_MENU_ROBOT_TESTING_LOAD_PAGE
 
 import os
@@ -20,6 +21,7 @@ def test_suite():
 
     for robot_file in robot_files:
         rts = robotsuite.RobotTestSuite(robot_file)
+        rts.level = ROBOT_TEST_LEVEL
         suite.addTests([
             layered(
                 rts,
@@ -29,6 +31,7 @@ def test_suite():
 
     # Use another test layer for load_page tests
     rts = robotsuite.RobotTestSuite(load_page_robot_test)
+    rts.level = ROBOT_TEST_LEVEL
     suite.addTests([
         layered(
             rts,
