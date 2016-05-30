@@ -70,6 +70,10 @@ class CPSkinMenuPloneWithPackageLayer(PloneWithPackageLayer):
         catalog = getToolByName(portal, 'portal_catalog')
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
+        
+        # disable non folderish sections 
+        # to fake workflow filtered base navigation
+        portal.portal_properties.site_properties.manage_changeProperties(disable_nonfolderish_sections=True)
 
         registry = queryUtility(IRegistry)
         registry.records['cpskin.core.interfaces.ICPSkinSettings.load_page_menu'].value = self.load_page_menu
