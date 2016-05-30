@@ -22,4 +22,9 @@ $( document ).ready(function() {
             return false;
         })
     });
+
+    $('.portal-globalnav-cpskinmenu li span a').filter(function() {
+        href = $(this).attr('href'); 
+        return location.href.indexOf(href) > -1
+    }).parent().addClass("selected").parent().addClass("navTreeItemInPath");
 });

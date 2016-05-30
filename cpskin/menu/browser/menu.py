@@ -95,7 +95,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
     ADD_PORTAL_TABS = True
 
     # this template is used to generate a single menu item.
-    _menu_item = u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span%(selected)s><a href="%(url)s" title="%(description)s" id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
+    _menu_item = u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span><a href="%(url)s" title="%(description)s" id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
 
     # this template is used to generate a menu container
     _submenu_item = u"""<ul%(id)s class="%(classname)s">%(close)s%(menuitems)s</ul>"""
@@ -288,8 +288,6 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             classes.append('firstItem')
         if last:
             classes.append('lastItem')
-        if item['currentParent']:
-            classes.append('navTreeItemInPath')
 
         brain = item['item']
 
