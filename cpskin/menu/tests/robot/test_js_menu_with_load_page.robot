@@ -13,7 +13,7 @@ Test Teardown  Close all browsers
 
 Test menu
     Click LOISIRS Menu
-    Location Should Be  http://localhost:55001/plone/loisirs
+    Location Should Be  ${PLONE_URL}/loisirs
 
 
 *** Keywords ***
