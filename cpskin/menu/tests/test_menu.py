@@ -48,23 +48,6 @@ class TestMenu(unittest.TestCase):
         self.assertTrue(key.startswith('menu-'))
         self.assertTrue(key.endswith(IUUID(viewlet._get_real_context())))
 
-    def test_menu_cache_key_on_communes(self):
-        communes = getattr(self.portal, 'commune')
-        viewlet = CpskinMenuViewlet(communes, self.request, None, None)
-        viewlet.update()
-        key = cache_key_desktop(viewlet.superfish_portal_tabs, viewlet)
-        self.assertTrue(key.startswith('menu-'))
-        self.assertTrue(key.endswith(IUUID(viewlet._get_real_context())))
-
-    def test_menu_cache_key_on_communes_subitem(self):
-        item = self.portal.restrictedTraverse('commune/services_communaux')
-        # communes = getattr(self.portal, 'commune')
-        viewlet = CpskinMenuViewlet(item, self.request, None, None)
-        viewlet.update()
-        key = cache_key_desktop(viewlet.superfish_portal_tabs, viewlet)
-        self.assertTrue(key.startswith('menu-'))
-        self.assertTrue(key.endswith(IUUID(viewlet._get_real_context())))
-
     def test_menu_cache_usage_test_fail(self):
         item = self.portal.restrictedTraverse('commune/services_communaux')
         viewlet = CpskinMenuViewlet(item, self.request, None, None)
@@ -84,14 +67,14 @@ class TestMenu(unittest.TestCase):
         item = self.portal.restrictedTraverse('commune')
         viewlet2 = CpskinMenuViewlet(item, self.request, None, None)
         viewlet2.update()
-        self.assertEqual(cache_exist(viewlet2), False)
+        self.assertEqual(cache_exist(viewlet2), True)
         viewlet2.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet2), True)
 
         item = self.portal.restrictedTraverse('loisirs')
         viewlet3 = CpskinMenuViewlet(item, self.request, None, None)
         viewlet3.update()
-        self.assertEqual(cache_exist(viewlet3), False)
+        self.assertEqual(cache_exist(viewlet3), True)
         viewlet3.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet3), True)
 
@@ -189,9 +172,6 @@ class TestMenu(unittest.TestCase):
         viewlet_loisirs = CpskinMenuViewlet(loisirs, self.request, None, None)
         viewlet_loisirs.update()
         self.assertEqual(cache_exist(viewlet), True)
-        self.assertEqual(cache_exist(viewlet_loisirs), False)
-        viewlet_loisirs.superfish_portal_tabs()
-        self.assertEqual(cache_exist(viewlet), True)
         self.assertEqual(cache_exist(viewlet_loisirs), True)
         api.content.move(item, loisirs)
         self.assertEqual(cache_exist(viewlet), False)
@@ -201,7 +181,7 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(cache_exist(viewlet), False)
         self.assertEqual(cache_exist(viewlet_loisirs), False)
         viewlet_loisirs.superfish_portal_tabs()
-        self.assertEqual(cache_exist(viewlet), False)
+        self.assertEqual(cache_exist(viewlet), True)
         self.assertEqual(cache_exist(viewlet_loisirs), True)
 
     def test_object_rename_invalidates_menu(self):

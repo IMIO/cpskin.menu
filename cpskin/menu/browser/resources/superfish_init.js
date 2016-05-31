@@ -159,6 +159,8 @@
         $('.portal-globalnav-cpskinmenu li span a').filter(function() {
                 return isInPath(this) && !isSelectedLeaf(this);
         }).parent().parent().addClass("navTreeItemInPath");
+        $('.portal-globalnav-cpskinmenu.sf-menu').find('.navTreeItemInPath').parent().show();
+        $('.portal-globalnav-cpskinmenu.sf-menu').find('.selected').parent().parent().show();
     }
 
     $( document ).ready(function() {

@@ -38,12 +38,12 @@ def cache_key(menu_key, obj_id):
 
 
 def cache_key_desktop(meth, viewlet):
-    obj_id = IUUID(viewlet._get_real_context(), None)
+    obj_id = IUUID(viewlet._get_root_menu(mobile=False), None)
     return cache_key(DESKTOP_ID, obj_id)
 
 
 def cache_key_mobile(meth, viewlet):
-    obj_id = IUUID(viewlet._get_real_context(), None)
+    obj_id = IUUID(viewlet._get_root_menu(mobile=True), None)
     return cache_key(MOBILE_ID, obj_id)
 
 
