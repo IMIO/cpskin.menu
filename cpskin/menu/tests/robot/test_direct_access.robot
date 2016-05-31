@@ -30,7 +30,7 @@ Test direct access link
     Click Element  css=ul.navTreeLevel0 a#loisirs-art_et_culture
 
     Click Element       css=ul.direct_access a#loisirs-art_et_culture-artistes-rockers-john_lennon
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/artistes/rockers/john_lennon
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/rockers/john_lennon
 
 
 *** Keywords ***
@@ -39,4 +39,4 @@ Test direct access link
 Click LOISIRS menu
     Element Should Be Visible  css=li#portaltab-loisirs a
     Click Element              css=li#portaltab-loisirs a
-    Location Should Be         http://localhost:55001/plone
+    Location Should Be         ${PLONE_URL}

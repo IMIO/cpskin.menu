@@ -23,7 +23,7 @@ Test menu
     Click Element              css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-tata
 
     Wait Until Page Contains Element  xpath=//h1[contains(text(),'Tata')]
-    Location Should Be                http://localhost:55001/plone/loisirs/art_et_culture/artistes/tata
+    Location Should Be                ${PLONE_URL}/loisirs/art_et_culture/artistes/tata
 
 Test loading with 3 levels
     Click LOISIRS Menu
@@ -31,7 +31,7 @@ Test loading with 3 levels
     Click Element       css=ul.navTreeLevel0 a#loisirs-art_et_culture
     Location Is Homepage
     Click Element       css=ul.navTreeLevel1 a#loisirs-art_et_culture-bibliotheques
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/bibliotheques
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/bibliotheques
 
 Test loading with 4 levels
     Click LOISIRS Menu
@@ -41,21 +41,21 @@ Test loading with 4 levels
     Click Element       css=ul.navTreeLevel1 a#loisirs-art_et_culture-artistes
     Location Is Homepage
     Click Element       css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-tata
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/artistes/tata
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/tata
 
 Test begin on other page than root
-    Go To  http://localhost:55001/plone/commune/services_communaux/finances
+    Go To  ${PLONE_URL}/commune/services_communaux/finances
 
     Element Should Be Visible  css=li#portaltab-loisirs a
     Click Element              css=li#portaltab-loisirs a
-    Location Should Be  http://localhost:55001/plone/commune/services_communaux/finances
+    Location Should Be  ${PLONE_URL}/commune/services_communaux/finances
 
     Click Element       css=ul.navTreeLevel0 a#loisirs-art_et_culture
-    Location Should Be  http://localhost:55001/plone/commune/services_communaux/finances
+    Location Should Be  ${PLONE_URL}/commune/services_communaux/finances
     Click Element       css=ul.navTreeLevel1 a#loisirs-art_et_culture-artistes
-    Location Should Be  http://localhost:55001/plone/commune/services_communaux/finances
+    Location Should Be  ${PLONE_URL}/commune/services_communaux/finances
     Click Element       css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-tata
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/artistes/tata
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/tata
 
 Test keyboard navigation
     Click LOISIRS Menu
@@ -65,7 +65,7 @@ Test keyboard navigation
     Focus                      css=a#loisirs-art_et_culture-artistes
     Element Should Be Visible  css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-tata
     Click Element              css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-tata
-    Location Should Be         http://localhost:55001/plone/loisirs/art_et_culture/artistes/tata
+    Location Should Be         ${PLONE_URL}/loisirs/art_et_culture/artistes/tata
 
 
 Test level 5 not in menu
@@ -76,7 +76,7 @@ Test level 5 not in menu
     Click Element       css=ul.navTreeLevel1 a#loisirs-art_et_culture-artistes
     Location Is Homepage
     Click Element       css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-rockers
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/artistes/rockers
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/rockers
 
 Test fourth level navigation folder not working in wrong place
     Click LOISIRS Menu
@@ -87,19 +87,19 @@ Test fourth level navigation folder not working in wrong place
     Location Is Homepage
     Click Element       css=ul.navTreeLevel2 a#loisirs-art_et_culture-artistes-cinema
     # Menu not deployed
-    Location Should Be  http://localhost:55001/plone/loisirs/art_et_culture/artistes/cinema
+    Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/cinema
 
     Page Should Contain  Kinepolis
 
 Test menu visible when location is subfolder
-    Go To  http://localhost:55001/plone/loisirs/art_et_culture
+    Go To  ${PLONE_URL}/loisirs/art_et_culture
     Element Should Be Visible  css=ul.navTreeLevel0 a#loisirs-art_et_culture
 
 
 *** Keywords ***
 
 Location Is Homepage
-    Location Should Be  http://localhost:55001/plone
+    Location Should Be  ${PLONE_URL}
 
 
 Click LOISIRS Menu
