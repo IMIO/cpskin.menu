@@ -142,7 +142,28 @@
         $('#advanced-breadcrumbs').find('div ul').not(':last').hide();
     }
 
+    function setupInPathAndSelectedItems() {
+        var isSelectedLeaf = function(el) {
+            var href = $(el).attr('href'); 
+            return location.href == href;
+        }
+
+        var isInPath = function(el) {
+            var href = $(el).attr('href'); 
+            return location.href.indexOf(href) > -1;
+        }
+
+        $('.portal-globalnav-cpskinmenu li span a').filter(function() {
+                return isSelectedLeaf(this);
+        }).parent().addClass("selected");
+        $('.portal-globalnav-cpskinmenu li span a').filter(function() {
+                return isInPath(this) && !isSelectedLeaf(this);
+        }).parent().parent().addClass("navTreeItemInPath");
+    }
+
     $( document ).ready(function() {
+        setupInPathAndSelectedItems();
+
         //initialize superfish
         $('ul.sf-menu').superfish();
 
@@ -153,9 +174,8 @@
                                $('#mobile-first-level-wrapper').slideToggle()
                                                                .toggleClass('menu-active');
                                });
-        //first: create first level menu
         create_first_level_menu($menu);
-        //second: create breadcrumbs
+
         create_breadcrumb($menu);
 
         $('#search-btn').click(function(e){
