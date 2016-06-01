@@ -32,7 +32,7 @@
                    .data('orig_id', $(this).attr('id'));
 
             //if we have link or level is greater than 1 follow the link
-            if(li_class=='follow' || level > 2){
+            if(li_class=='follow' || level > 3){
                 //we don't have children or we are in a level where we should follow the link
                 $new_li.data('follow', $(this).find('span a').attr('href'));
                 $new_li.on('click', function(){
@@ -85,8 +85,8 @@
         //console.log("id di menu: " +  $element.attr('id'))
         //$new_level.data('original_element_id', $element.attr('id'));
         var $childrens = $element.find('> ul');
-        //at most 4 level
-        if (level<4){
+        //at most 5 level
+        if (level<5){
             var selected = '';
             if ($element.find('> span').hasClass('selected')){
                 selected = 'selected';
@@ -111,35 +111,23 @@
         return '';
     }
 
-    function create_first_level_menu($menu){
-        /*
-         * We create the collapsible menu cloning elements
-         * */
-        var $first_level = $menu.children('li');
-        var $cloned_first_level = $first_level.clone();
-        $cloned_first_level.find('> ul').remove();
-        update_element_id($cloned_first_level, FL_PREFIX);
-        $('#mobile-first-level-wrapper').append($("<ul class='mobile-first-level'/>").append($cloned_first_level));
-
-    }
     function create_breadcrumb($menu){
         /*
          * read from the menu structure le selected elements path and build collapsible breadcrumbs
          * */
-        var $breadcrumbs = $menu.find('.navTreeItemInPath');
+        var $cloned_menu = $('<div />').append($menu.clone());
+        $breadcrumbs = $().add($cloned_menu).add($menu.find('.navTreeItemInPath'));
         //add selected element to bc only if it's a list
         if($menu.find('.selected').parent().find('> ul').length > 0){
-            var $breadcrumbs = $menu.find('.navTreeItemInPath').add($menu.find('.selected').parent());
-        }
-        else{
-            var $breadcrumbs = $menu.find('.navTreeItemInPath');
+            var $breadcrumbs = $breadcrumbs.add($menu.find('.selected').parent());
         }
         //get all the li elements in the path and create the menu
         $($breadcrumbs).each(function(index, value){
-            var element = $(value);
-            $('#advanced-breadcrumbs').append(create_menu_level(element, index+1, 'breadcrumbs'));
+                var element = $(value);
+                $('#advanced-breadcrumbs').append(create_menu_level(element, index+1, 'breadcrumbs'));
         })
-        $('#advanced-breadcrumbs').find('div ul').not(':last').hide();
+        $('#advanced-breadcrumbs').find('div ul').hide();
+        $('#advanced-breadcrumbs').find('#title-level-1').hide();
     }
 
     function setupInPathAndSelectedItems() {
@@ -173,10 +161,9 @@
         var $menu = $('#portal-globalnav-cpskinmenu-mobile');
         $('#mobnav-btn').on('click',
                             function(){
-                               $('#mobile-first-level-wrapper').slideToggle()
+                               $('#advanced-breadcrumbs .submenu-level-1').slideToggle()
                                                                .toggleClass('menu-active');
                                });
-        create_first_level_menu($menu);
 
         create_breadcrumb($menu);
 
