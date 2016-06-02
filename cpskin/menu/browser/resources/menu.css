@@ -51,13 +51,12 @@
 
 .advb-submenu li
 {
-    display: inline-block;
+    display: block;
 }
 
 .advb-submenu .submenu {
     background-color: white;
     border-radius: 5px;
-    float: left;
     margin-left: 0;
     clear:both;
 }

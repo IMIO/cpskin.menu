@@ -1,6 +1,7 @@
 #advanced-breadcrumbs
 {
     font-size: 120%;
+    padding-bottom:7%;
 }
 
 #advanced-breadcrumbs .advb-submenu
@@ -14,13 +15,13 @@
 }
 
 #advanced-breadcrumbs li.selected,
- #advanced-breadcrumbs span.selected
+#advanced-breadcrumbs span.selected
 {
     border-bottom: 1px dotted #444;
 }
 
 #advanced-breadcrumbs,
- #mobile-first-level-wrapper
+#mobile-first-level-wrapper
 {
     display: block;
 }
@@ -38,8 +39,8 @@
 }
 
 #portal-globalnav,
- #portal-globalnav-cpskinmenu-tabs,
- #portal-globalnav-cpskinmenu
+#portal-globalnav-cpskinmenu-tabs,
+#portal-globalnav-cpskinmenu
 {
     display: none;
 }
