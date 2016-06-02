@@ -131,7 +131,7 @@
     #advanced-breadcrumbs li.selected,
      #advanced-breadcrumbs span.selected
     {
-        border-bottom: 1px dotted #444;
+        border-left-style: dotted;
     }
 
     #advanced-breadcrumbs,
