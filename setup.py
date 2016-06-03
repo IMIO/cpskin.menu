@@ -52,7 +52,7 @@ setup(name='cpskin.menu',
               'Mock',
               'plone.api',
               'plone.app.multilingual',
-              'plone.app.robotframework',
+              'plone.app.robotframework[debug]',
               'plone.app.testing',
               'z3c.unconfigure',
           ]
