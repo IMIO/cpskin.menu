@@ -19,6 +19,7 @@ from plone.registry.interfaces import IRegistry
 from plone.memoize.interfaces import ICacheChooser
 
 from affinitic.caching.memcached import MemcacheAdapter
+from affinitic.caching.testing import NO_MEMCACHED
 
 from cpskin.menu.interfaces import IFourthLevelNavigation, IDirectAccess
 
@@ -216,3 +217,9 @@ CPSKIN_MENU_ROBOT_TESTING_LOAD_PAGE = FunctionalTesting(
     bases=(CPSKIN_MENU_FIXTURE_LOAD_PAGE, AUTOLOGIN_LIBRARY_FIXTURE,
            z2.ZSERVER_FIXTURE),
     name="cpskin.menu:Robot load page")
+
+
+NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING = FunctionalTesting(
+    bases=(CPSKIN_MENU_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE,
+           z2.ZSERVER_FIXTURE, NO_MEMCACHED),
+    name="NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING")

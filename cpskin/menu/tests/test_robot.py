@@ -2,6 +2,7 @@
 from plone.testing import layered
 from plone.app.testing import ROBOT_TEST_LEVEL
 from cpskin.menu.testing import CPSKIN_MENU_ROBOT_TESTING, CPSKIN_MENU_ROBOT_TESTING_LOAD_PAGE
+from cpskin.menu.testing import NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING
 
 import os
 import robotsuite
@@ -26,6 +27,16 @@ def test_suite():
             layered(
                 rts,
                 layer=CPSKIN_MENU_ROBOT_TESTING
+            )
+        ])
+
+    for robot_file in robot_files:
+        rts = robotsuite.RobotTestSuite(robot_file)
+        rts.level = ROBOT_TEST_LEVEL
+        suite.addTests([
+            layered(
+                rts,
+                layer=NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING
             )
         ])
 

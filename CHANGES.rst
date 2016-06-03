@@ -4,6 +4,9 @@ Changelog
 0.4.6 (unreleased)
 ------------------
 
+- Add tests without any caching to debunk issues with caching.
+  [gotcha]
+
 - Mobile menu should not load a page when at first level folders,
   but rather open next submenu.
   [gotcha]
