@@ -4,6 +4,9 @@ Changelog
 0.4.6 (unreleased)
 ------------------
 
+- Tune mobile menu CSS
+  [mgennart]
+
 - Add tests without any caching to debunk issues with caching.
   [gotcha]
 
