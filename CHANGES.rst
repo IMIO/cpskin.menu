@@ -4,7 +4,15 @@ Changelog
 0.4.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Mobile menu should not load a page when at first level folders,
+  but rather open next submenu.
+  [gotcha]
+
+- Tune caching.
+  [gotcha]
+
+- Move some computation from server to client to improve caching.
+  [gotcha]
 
 
 0.4.5 (2016-03-08)
