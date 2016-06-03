@@ -51,13 +51,12 @@
 
 .advb-submenu li
 {
-    display: inline-block;
+    display: block;
 }
 
 .advb-submenu .submenu {
     background-color: white;
     border-radius: 5px;
-    float: left;
     margin-left: 0;
     clear:both;
 }
@@ -132,7 +131,7 @@
     #advanced-breadcrumbs li.selected,
      #advanced-breadcrumbs span.selected
     {
-        border-bottom: 1px dotted #444;
+        border-left-style: dotted;
     }
 
     #advanced-breadcrumbs,
