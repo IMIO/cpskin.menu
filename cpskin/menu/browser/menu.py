@@ -66,7 +66,6 @@ cached_method_id = 'cpskin.menu.browser.menu.superfish_portal_tabs'
 
 
 def invalidate_menu(context):
-    # print "INVALIDATE MENU"
     request = getRequest()
     if request is None:  # when plone site is created
         request = context.REQUEST
@@ -164,9 +163,6 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         # Why different depth in desktop and mobile?
         self.data = self._build_navtree(self.navigation_root_path,
                                         depth=self.menu_depth)
-
-        if self.ADD_PORTAL_TABS and self.is_homepage:
-            self._addActionsToData()
 
     @cache(cache_key_desktop, get_dependencies=get_menu_dependencies_desktop)
     def superfish_portal_tabs(self):
