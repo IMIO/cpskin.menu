@@ -44,7 +44,7 @@ setup(name='cpskin.menu',
           'cpskin.theme',
           'collective.superfish',
           'z3c.jbot',
-          'affinitic.caching',
+          'affinitic.caching>=0.7',
           # -*- Extra requirements: -*-
       ],
       extras_require={
