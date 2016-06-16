@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.6 (unreleased)
+0.4.6 (2016-06-16)
 ------------------
 
 - Add tests without any caching to debunk issues with caching.
