@@ -54,6 +54,5 @@ setup(name='cpskin.menu',
               'plone.app.robotframework[debug]',
               'plone.app.testing',
               'z3c.unconfigure',
-          ]
-      },
+          ]},
       entry_points={})
