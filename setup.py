@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-version = '0.4.6.dev0'
+version = '0.4.7.dev0'
 
 from setuptools import setup, find_packages
 
@@ -54,6 +54,5 @@ setup(name='cpskin.menu',
               'plone.app.robotframework[debug]',
               'plone.app.testing',
               'z3c.unconfigure',
-          ]
-      },
+          ]},
       entry_points={})

@@ -1,7 +1,13 @@
 Changelog
 =========
 
-0.4.6 (unreleased)
+0.4.7 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
+0.4.6 (2016-06-16)
 ------------------
 
 - Tune mobile menu CSS
