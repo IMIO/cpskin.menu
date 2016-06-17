@@ -4,7 +4,8 @@ Changelog
 0.4.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix open/close of top level submenu for mobile
+  [gotcha]
 
 
 0.4.6 (2016-06-16)

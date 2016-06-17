@@ -97,18 +97,24 @@
                   .on('click',
                       function(){
                           //open correct menu and close the others
-                          $(this).parent().siblings().each(function(){
-                              if($(this).children('ul').is(':visible'))
-                                  $(this).children('ul').slideUp().removeClass('submenu-active');
-                          })
-                          $(this).parent().find('> ul').slideToggle()
-                                          .toggleClass('submenu-active');
+                          toggle_menu($(this).parent().find('> ul'));
                       });
             $new_level.append($title);
             $new_level.append(extract_submenu_children($childrens, level, createdby));
             return $new_level;
             }
         return '';
+    }
+
+    function hide_opened_menus(){
+        $('#advanced-breadcrumbs').children().children('ul').slideUp().removeClass('submenu-active');
+    }
+
+    function toggle_menu($submenu) {
+        if (!$submenu.hasClass('submenu-active')) {
+            hide_opened_menus();
+        }
+        $submenu.slideToggle() .toggleClass('submenu-active');
     }
 
     function create_breadcrumb($menu){
@@ -160,10 +166,9 @@
         //initialize drop down menu
         var $menu = $('#portal-globalnav-cpskinmenu-mobile');
         $('#mobnav-btn').on('click',
-                            function(){
-                               $('#advanced-breadcrumbs .submenu-level-1').slideToggle()
-                                                               .toggleClass('menu-active');
-                               });
+           function(){
+               toggle_menu($('#advanced-breadcrumbs .submenu-level-1'));
+           });
 
         create_breadcrumb($menu);
 
