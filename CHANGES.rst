@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.7 (unreleased)
+0.4.7 (2016-06-22)
 ------------------
 
 - Fix open/close of top level submenu for mobile
