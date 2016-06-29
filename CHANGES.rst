@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.9 (unreleased)
+0.4.9 (2016-06-29)
 ------------------
 
 - Menu should be based on navigation root.
