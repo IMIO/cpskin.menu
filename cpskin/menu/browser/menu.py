@@ -30,21 +30,24 @@ DESKTOP_ID = 'menu-desktop'
 MOBILE_ID = 'menu-mobile'
 
 
-def cache_key(menu_key, obj_id):
+def cache_key(menu_key, obj_id, request):
     if obj_id is None:
         raise DontCache()
-    key = "{0}.{1}".format(menu_key, obj_id)
+    server_url = request.other['SERVER_URL']
+    language = request.other.get('LANGUAGE', 'default')
+    domain = request.environ.get('HTTP_X_FORWARDED_HOST', server_url)
+    key = "{0}.{1}.{2}.{3}".format(menu_key, domain, language, obj_id)
     return key
 
 
 def cache_key_desktop(meth, viewlet):
     obj_id = IUUID(viewlet._get_root_menu(mobile=False), None)
-    return cache_key(DESKTOP_ID, obj_id)
+    return cache_key(DESKTOP_ID, obj_id, viewlet.request)
 
 
 def cache_key_mobile(meth, viewlet):
     obj_id = IUUID(viewlet._get_root_menu(mobile=True), None)
-    return cache_key(MOBILE_ID, obj_id)
+    return cache_key(MOBILE_ID, obj_id, viewlet.request)
 
 
 def get_menu_dependencies_desktop(meth, viewlet):

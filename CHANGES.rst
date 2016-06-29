@@ -4,7 +4,8 @@ Changelog
 0.4.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Finer grained cachekey on domain and language
+  [jfroche, gotcha]
 
 
 0.4.7 (2016-06-22)
