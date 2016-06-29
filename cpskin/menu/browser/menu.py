@@ -116,7 +116,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         context = self._get_real_context()
 
         if mobile or not self._is_load_page_menu():
-            return api.portal.get()
+            return api.portal.get_navigation_root(context)
         else:
             # Plone site root?
             if '/'.join(context.getPhysicalPath()) == self.navigation_root_path:

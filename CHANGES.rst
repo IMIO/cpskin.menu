@@ -4,7 +4,8 @@ Changelog
 0.4.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Menu should be based on navigation root.
+  [gotcha]
 
 
 0.4.8 (2016-06-29)
