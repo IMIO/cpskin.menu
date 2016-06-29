@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.8 (unreleased)
+0.4.8 (2016-06-29)
 ------------------
 
 - Finer grained cachekey on domain and language
