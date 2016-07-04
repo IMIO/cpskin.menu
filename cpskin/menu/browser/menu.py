@@ -209,7 +209,11 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
                 for item in self.data['children']:
                     item_id = item['item'].id
                     self.menu_id = 'portal-globalnav-cpskinmenu-' + item_id
-                    menu_classnames = u"sf-menu"
+
+                    if self._is_load_page_menu():
+                        menu_classnames = u"sf-menu cpskinmenu-load-page"
+                    else:
+                        menu_classnames = u"sf-menu"
 
                     menu += self._submenu(
                         item['children'],

@@ -82,8 +82,6 @@
     function create_menu_level($element, level, createdby){
         var $new_level = $("<div class='advb-submenu' id='" + SUBMENU_PREFIX + level + "'/>")
                          .data('orig_id', $element.attr('id'));
-        //console.log("id di menu: " +  $element.attr('id'))
-        //$new_level.data('original_element_id', $element.attr('id'));
         var $childrens = $element.find('> ul');
         //at most 5 level
         if (level<5){
@@ -144,12 +142,15 @@
 
         var isInPath = function(el) {
             var href = $(el).attr('href'); 
-            return location.href.indexOf(href) > -1;
+            return href.indexOf(location.href) > -1;
         }
 
         $('.portal-globalnav-cpskinmenu li span a').filter(function() {
                 return isSelectedLeaf(this);
         }).parent().addClass("selected");
+        $('.cpskinmenu-load-page > li > span > a').filter(function() {
+                return isInPath(this);
+        }).parent().parent().parent().show();
         $('.portal-globalnav-cpskinmenu li span a').filter(function() {
                 return isInPath(this) && !isSelectedLeaf(this);
         }).parent().parent().addClass("navTreeItemInPath");
