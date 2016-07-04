@@ -209,12 +209,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
                 for item in self.data['children']:
                     item_id = item['item'].id
                     self.menu_id = 'portal-globalnav-cpskinmenu-' + item_id
-
-                    # Allow to set menu visible
-                    if item_id == child_id:
-                        menu_classnames = u"sf-menu sf-menu-active"
-                    else:
-                        menu_classnames = u"sf-menu"
+                    menu_classnames = u"sf-menu"
 
                     menu += self._submenu(
                         item['children'],

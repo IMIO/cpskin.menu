@@ -4,7 +4,8 @@ Changelog
 0.4.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- No menu should be opened when accessing root of the portal.
+  [gotcha]
 
 
 0.4.9 (2016-06-29)

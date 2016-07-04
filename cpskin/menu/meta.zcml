@@ -62,4 +62,16 @@
       handler="cpskin.menu.upgrades.upgrade_1002_to_1003"
       profile="cpskin.menu:default"/>
 
+  <genericsetup:upgradeSteps
+      source="1003"
+      destination="1004"
+      profile="cpskin.menu:default">
+
+      <genericsetup:upgradeDepends
+          title="Remove cpskin_submenu.js"
+          import_steps="jsregistry"
+          />
+      
+  </genericsetup:upgradeSteps>
+
 </configure>
