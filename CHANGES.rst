@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.10 (unreleased)
+0.4.10 (2016-07-04)
 -------------------
 
 - No menu should be opened when accessing root of the portal.
