@@ -6,6 +6,7 @@
    <include file="overrides.zcml"/>
    <include package="cpskin.core" file="testing.zcml"/>
    <include package="cpskin.theme" file="testing.zcml"/>
+   <include package="affinitic.caching" />
    <include package="affinitic.caching" file="views.zcml"/>
 
   <genericsetup:registerProfile

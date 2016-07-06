@@ -26,6 +26,15 @@ from cpskin.menu.interfaces import IFourthLevelNavigation, IDirectAccess
 import cpskin.menu
 
 
+def memcached_launched():
+    adapter = queryUtility(ICacheChooser)('cpskin.menu.browser.menu.superfish_portal_tabs')
+    if isinstance(adapter, MemcacheAdapter):
+        adapter['test_key'] = 'test_value'
+        if adapter.get('test_key'):
+            return True
+    return False
+
+
 class CPSkinMenuPloneWithPackageLayer(PloneWithPackageLayer):
     """
     plone (portal root)
@@ -54,17 +63,8 @@ class CPSkinMenuPloneWithPackageLayer(PloneWithPackageLayer):
 
     load_page_menu = False
 
-    @staticmethod
-    def memcached_launched():
-        adapter = queryUtility(ICacheChooser)('cpskin.menu.browser.menu.superfish_portal_tabs')
-        if isinstance(adapter, MemcacheAdapter):
-            adapter['test_key'] = 'test_value'
-            if adapter.get('test_key'):
-                return True
-        return False
-
     def setUpPloneSite(self, portal):
-        if not self.memcached_launched():
+        if not memcached_launched():
             raise EnvironmentError("Memcached must be launched")
 
         applyProfile(portal, 'cpskin.menu:testing')
