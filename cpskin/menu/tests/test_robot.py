@@ -19,6 +19,9 @@ def test_suite():
     load_page_robot_test = "robot/test_js_menu_with_load_page.robot"
     lp_index = robot_files.index(load_page_robot_test)
     del robot_files[lp_index]
+    load_page_robot_test = "robot/test_load_page.robot"
+    lp_index = robot_files.index(load_page_robot_test)
+    del robot_files[lp_index]
 
     for robot_file in robot_files:
         rts = robotsuite.RobotTestSuite(robot_file)

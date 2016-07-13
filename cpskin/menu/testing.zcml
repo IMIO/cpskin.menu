@@ -17,4 +17,34 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="testing_persistence"
+      title="cpskin.menu persistence"
+      directory="profiles/testing-persistence"
+      description="Installs the cpskin.menu package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="testing_no_persistence"
+      title="cpskin.menu no persistence"
+      directory="profiles/testing-no-persistence"
+      description="Installs the cpskin.menu package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="testing_load_page"
+      title="cpskin.menu load page"
+      directory="profiles/testing-load-page"
+      description="Installs the cpskin.menu package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="cpskin.menu.content"
+      title="Add content"
+      description="to test cpskin.menu with robot"
+      handler=".testing_robot.setupContent" />
+
 </configure>
