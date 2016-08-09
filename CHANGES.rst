@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.4.11 (unreleased)
--------------------
+0.5.0 (2016-08-09)
+------------------
 
 - Move CPSkin actions to a new dedicated menu
   [laulaz]
