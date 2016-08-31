@@ -43,11 +43,11 @@ When clicking level 1, other page is loaded
 Test menu level 2 structure
     On each page
     Menu level 2 shown with corresponding content
-    Folder with subcontent is shown as access to submenu
-    Folder with subcontent and with default view is shown as access to submenu
-    Folder with default view and no other subcontent is shown as direct link
-    Content element is shown as direct link
-    Folder without subcontent is shown as direct link
+    In level 2 menu, Folder with subcontent is shown as access to submenu
+    In level 2 menu, Folder with subcontent and with default view is shown as access to submenu
+    In level 2 menu, Folder with default view and no other subcontent is shown as direct link
+    In level 2 menu, Content element is shown as direct link
+    In level 2 menu, Folder without subcontent is shown as direct link
 
 Test direct link in level 2
     On each page
@@ -56,12 +56,24 @@ Test direct link in level 2
     Direct link page is loaded
 
 Test submenu in level 2
+    On each page
+    Menu level 2 shown with corresponding content
+    Click submenu in level 2
+    Menu level 3 shown
+    No page is loaded
+
+Test menu level 3 structure
     [tags]  current
     On each page
     Menu level 2 shown with corresponding content
     Click submenu in level 2
     Menu level 3 shown
     No page is loaded
+    In level 3 menu, Folder with subcontent is shown as access to submenu
+    In level 3 menu, Folder with subcontent and with default view is shown as access to submenu
+    In level 3 menu, Folder with default view and no other subcontent is shown as direct link
+    In level 3 menu, Content element is shown as direct link
+    In level 3 menu, Folder without subcontent is shown as direct link
 
 *** Keywords ***
 
@@ -110,21 +122,21 @@ Click outside menu
 Menu is not hidden
     Menu level 2 shown with corresponding content
     
-Folder with subcontent is shown as access to submenu
+In level 2 menu, Folder with subcontent is shown as access to submenu
     Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2 .sf-sub-indicator
     
-Folder with subcontent and with default view is shown as access to submenu
+In level 2 menu, Folder with subcontent and with default view is shown as access to submenu
     Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-default-view-subcontent-in-2 .sf-sub-indicator
 
-Folder with default view and no other subcontent is shown as direct link
+In level 2 menu, Folder with default view and no other subcontent is shown as direct link
     Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-default-view-empty-in-2
     Page should not contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-default-view-empty-in-2 .sf-sub-indicator
 
-Content element is shown as direct link
+In level 2 menu, Content element is shown as direct link
     Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-direct-link-in-2
     Page should not contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-direct-link-in-2 .sf-sub-indicator
 
-Folder without subcontent is shown as direct link
+In level 2 menu, Folder without subcontent is shown as direct link
     Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-empty-in-2
     Page should not contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-empty-in-2 .sf-sub-indicator
     
@@ -149,5 +161,27 @@ No page is loaded
     Should not be equal  ${ORIGINAL_URL}  ${CURRENT_URL}
 
 Menu level 3 shown
+    Wait until page does not contain element  jquery=:animated
     Wait until element is visible  css=#subfolder-1-subfolder-2-empty-in-3
     Element should be visible  css=#subfolder-1-subfolder-2-empty-in-3
+
+In level 3 menu, Folder with subcontent is shown as access to submenu
+    Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2-subfolder-3 .sf-sub-indicator
+    
+In level 3 menu, Folder with subcontent and with default view is shown as access to submenu
+    Page should contain element  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2-default-view-subcontent-in-3 .sf-sub-indicator
+
+In level 3 menu, Folder with default view and no other subcontent is shown as direct link
+    ${EL} =  Set variable  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2-default-view-empty-in-3
+    Page should contain element  ${EL}
+    Page should not contain element  ${EL} .sf-sub-indicator
+
+In level 3 menu, Content element is shown as direct link
+    ${EL} =  Set variable  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2-direct-link-in-3
+    Page should contain element  ${EL}
+    Page should not contain element  ${EL} .sf-sub-indicator
+
+In level 3 menu, Folder without subcontent is shown as direct link
+    ${EL} =  Set variable  css=#portal-globalnav-cpskinmenu-subfolder-1-subfolder-1-subfolder-2-empty-in-3
+    Page should contain element  ${EL}
+    Page should not contain element  ${EL} .sf-sub-indicator
