@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-version = '0.4.11.dev0'
+version = '0.5.1.dev0'
 
 from setuptools import setup, find_packages
 
@@ -30,7 +30,7 @@ setup(name='cpskin.menu',
       keywords='',
       author='IMIO',
       author_email='support@imio.be',
-      url='https://github.com/imio/',
+      url='https://github.com/imio/cpskin.menu',
       license='gpl',
       packages=find_packages(),
       include_package_data=True,

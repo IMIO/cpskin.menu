@@ -39,6 +39,15 @@
   <utility component=".vocabulary.LastLevelMenuVocabularyFactory"
            name="cpskin.menu.vocabularies.lastlevelnavigation" />
 
+  <genericsetup:registerProfile
+      name="to1005"
+      title="cpskin.menu: migrate to 1005"
+      directory="upgrades/to1005"
+      description="CPSKIN Menu: upgrade to v1005"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <genericsetup:upgradeStep
       title="Upgrade cpskin.menu from 1000 to 1001"
       source="1000"
@@ -73,5 +82,14 @@
           />
       
   </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeStep
+      title="Upgrade cpskin.menu from 1004 to 1005"
+      description="Upgrade step for moving CPSkin actions to new menu"
+      source="1004"
+      destination="1005"
+      handler="cpskin.menu.upgrades.move_cpskin_actions"
+      profile="cpskin.menu:default"/>
+
 
 </configure>
