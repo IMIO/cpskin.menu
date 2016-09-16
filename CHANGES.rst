@@ -4,7 +4,8 @@ Changelog
 0.5.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix menu items in the path
+  [gotcha]
 
 
 0.5.0 (2016-08-09)
