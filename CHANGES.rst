@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.1 (unreleased)
+0.5.1 (2016-09-16)
 ------------------
 
 - Fix menu items in the path
