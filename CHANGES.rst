@@ -4,7 +4,8 @@ Changelog
 0.5.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Sort Direct Access links alphabetically
+  [laulaz]
 
 
 0.5.1 (2016-09-16)

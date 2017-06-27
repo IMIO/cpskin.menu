@@ -322,6 +322,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         if menu_level == direct_access_level:
             queryDict = {}
             queryDict['path'] = {'query': url, 'depth': 10}
+            queryDict['sort_on'] = 'sortable_title'
             queryDict['object_provides'] = 'cpskin.menu.interfaces.IDirectAccess'
             catalog = getToolByName(self.context, 'portal_catalog')
 
