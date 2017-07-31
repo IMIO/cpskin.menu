@@ -1,3 +1,26 @@
+# ============================================================================
+# ROBOT TESTS
+# ============================================================================
+#
+# Run this robot test stand-alone:
+#
+#  $ bin/test -s cpskin.menu -t test_mobile.robot --all
+#
+# Run this robot test with robot server (which is faster):
+#
+# 1) Start robot server:
+#
+# $ bin/robot-server --reload-path cpskin cpskin.menu.testing.CPSKIN_MENU_ROBOT_TESTING
+#
+# 2) Run robot tests:
+#
+# $ bin/robot cpskin/menu/tests/robot/test_mobile.robot [-i current]
+#
+# See the http://docs.plone.org for further details (search for robot
+# framework).
+#
+# ============================================================================
+
 *** Settings ***
 
 Resource  plone/app/robotframework/keywords.robot
@@ -36,6 +59,7 @@ Test menu mobile
     Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/tata
 
 Test loading with 3 levels
+    [tags]  current
     Click Element       id=mobnav-btn
     Click Loisirs in menu
     Location Should Be  ${PLONE_URL}
@@ -91,4 +115,5 @@ Test menu after access from URL abba
 *** Keywords ***
 
 Click Loisirs in menu
-    Click Element       css=ul.submenu-level-1 li:nth-child(7)
+    Wait until element is visible  css=ul.submenu-level-1 li:nth-child(7)
+    Click Element  css=ul.submenu-level-1 li:nth-child(7)

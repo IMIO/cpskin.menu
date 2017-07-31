@@ -1,3 +1,26 @@
+# ============================================================================
+# ROBOT TESTS
+# ============================================================================
+#
+# Run this robot test stand-alone:
+#
+#  $ bin/test -s cpskin.menu -t test_menu.robot --all
+#
+# Run this robot test with robot server (which is faster):
+#
+# 1) Start robot server:
+#
+# $ bin/robot-server --reload-path cpskin cpskin.menu.testing.CPSKIN_MENU_ROBOT_TESTING
+#
+# 2) Run robot tests:
+#
+# $ bin/robot [-i current] cpskin/menu/tests/robot/test_menu.robot
+#
+# See the http://docs.plone.org for further details (search for robot
+# framework).
+#
+# ============================================================================
+
 *** Settings ***
 
 Resource  plone/app/robotframework/keywords.robot
@@ -14,7 +37,6 @@ Test Teardown  Close all browsers
 
 Test menu
     Click LOISIRS Menu
-
     Element Should Be Visible  css=ul.navTreeLevel0 a#loisirs-art_et_culture
     Click Element              css=ul.navTreeLevel0 a#loisirs-art_et_culture
     Element Should Be Visible  css=ul.navTreeLevel1 a#loisirs-art_et_culture-artistes
@@ -92,8 +114,9 @@ Test fourth level navigation folder not working in wrong place
     Page Should Contain  Kinepolis
 
 Test menu visible when location is subfolder
+    [Tags]  current
     Go To  ${PLONE_URL}/loisirs/art_et_culture
-    Element Should Be Visible  css=ul.navTreeLevel0 a#loisirs-art_et_culture
+    Element Should Not Be Visible  css=ul.navTreeLevel0 a#loisirs-art_et_culture
 
 
 *** Keywords ***
