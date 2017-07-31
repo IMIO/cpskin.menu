@@ -25,3 +25,4 @@ report.html
 output.xml
 log.html
 share/
+geckodriver.log
