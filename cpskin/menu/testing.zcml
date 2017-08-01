@@ -40,10 +40,10 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:importStep
+  <!--genericsetup:importStep
       name="cpskin.menu.content"
       title="Add content"
       description="to test cpskin.menu with robot"
-      handler=".testing_robot.setupContent" />
+      handler=".testing_robot.setupContent" /-->
 
 </configure>
