@@ -4,6 +4,9 @@ Changelog
 0.5.2 (unreleased)
 ------------------
 
+- Hide advanced breadcrumbs when loading page
+  [gotcha]
+
 - Sort Direct Access links alphabetically
   [laulaz]
 

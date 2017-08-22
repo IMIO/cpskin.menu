@@ -67,7 +67,7 @@
                           //need to open the next menu
                           $others_menu.each(function(){
                               if ($(this).data('orig_id') == orig_id)
-                                  $(this).find('> span').click();
+                                  $(this).show().find('> span').click();
                           })
                       }
                   });
@@ -132,6 +132,7 @@
         })
         $('#advanced-breadcrumbs').find('div ul').hide();
         $('#advanced-breadcrumbs').find('#title-level-1').hide();
+        $('#advanced-breadcrumbs').find('.advb-submenu').filter(function(index){return index!==0}).hide();
     }
 
     function setupInPathAndSelectedItems() {
