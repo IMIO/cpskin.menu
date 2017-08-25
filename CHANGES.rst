@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.2 (unreleased)
+0.5.2 (2017-08-25)
 ------------------
 
 - Hide advanced breadcrumbs when loading page
