@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.3 (unreleased)
+0.5.3 (2017-09-20)
 ------------------
 
 - Add conditionnal description on portal tabs : #17333
