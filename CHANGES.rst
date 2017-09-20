@@ -4,7 +4,8 @@ Changelog
 0.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add conditionnal description on portal tabs : #17333
+  [laulaz]
 
 
 0.5.2 (2017-08-25)

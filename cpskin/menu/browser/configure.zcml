@@ -28,6 +28,15 @@
     allowed_interface="..interfaces.IDirectAccessView"
     />
 
+  <browser:page
+    for="*"
+    name="show_description"
+    class=".menu.UtilsView"
+    attribute="show_description"
+    permission="zope2.View"
+    layer="..interfaces.ICpskinMenuLayer"
+    />
+
   <browser:viewlet
     name="cpskin.menu"
     manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
