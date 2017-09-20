@@ -5,7 +5,7 @@
 
     <ul id="portal-globalnav"
         tal:define="selected_tab python:view.selected_portal_tab;
-                    show_description context/@@show_description|nothing">
+                    show_description context/@@show_description|nothing"
         ><tal:tabs tal:repeat="tab portal_tabs"
         ><li tal:define="tid tab/id;
                          index repeat/tab/index;
