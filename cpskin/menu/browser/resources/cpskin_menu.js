@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
     // Add 'activated' class to menu already loaded
     $('#portal-globalnav li.selected:not(#portaltab-index_html) a').addClass('activated');
+    $('#portal-globalnav li.selected:not(#portaltab-index_html)').addClass('menu-activated');
 
     // Toggle between menu clicked
     var clickable_menu_selector = '#portal-globalnav li:not(#portaltab-index_html) a';
@@ -11,8 +12,10 @@ $( document ).ready(function() {
 
             $(clickable_menu_selector).each(function(){
                 $(this).removeClass('activated');
+                $(this).parent('li').removeClass('menu-activated');
             });
             $(this).addClass('activated');
+            $(this).parent('li').addClass('menu-activated');
 
             $('ul.sf-menu').each(function(){
                 $(this).hide();

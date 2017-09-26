@@ -4,7 +4,8 @@ Changelog
 0.5.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add 'menu-activated' class on opened menu <li>
+  [laulaz]
 
 
 0.5.3 (2017-09-20)
