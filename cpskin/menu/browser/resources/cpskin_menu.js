@@ -8,11 +8,12 @@ $( document ).ready(function() {
             var menu_id = this.parentNode.id.replace('portaltab-', '');
 
             if (!activated) {
-
                 $(clickable_menu_selector).each(function(){
                     $(this).removeClass('activated');
+                    $(this).parent('li').removeClass('menu-activated');
                 });
                 $(this).addClass('activated');
+                $(this).parent('li').addClass('menu-activated');
 
                 $('ul.sf-menu').each(function(){
                     $(this).hide();
@@ -20,6 +21,7 @@ $( document ).ready(function() {
                 $('#portal-globalnav-cpskinmenu-' + menu_id).show();
             } else {
                 $(this).removeClass('activated');
+                $(this).parent('li').removeClass('menu-activated');
                 $('#portal-globalnav-cpskinmenu-' + menu_id).hide();
             }
             return false;

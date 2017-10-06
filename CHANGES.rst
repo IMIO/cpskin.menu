@@ -1,7 +1,21 @@
 Changelog
 =========
 
-0.5.2 (unreleased)
+0.5.4 (unreleased)
+------------------
+
+- Add 'menu-activated' class on opened menu <li>
+  [laulaz]
+
+
+0.5.3 (2017-09-20)
+------------------
+
+- Add conditionnal description on portal tabs : #17333
+  [laulaz]
+
+
+0.5.2 (2017-08-25)
 ------------------
 
 - Hide advanced breadcrumbs when loading page

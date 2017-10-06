@@ -11,6 +11,7 @@ from plone.app.layout.viewlets import common
 from plone.app.layout.navigation.navtree import buildFolderTree
 
 from affinitic.caching import cache
+from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
@@ -83,6 +84,13 @@ def invalidate_menu(context):
         invalidate_dependencies(dependencies)
     except DontCache:
         pass
+
+
+class UtilsView(BrowserView):
+
+    def show_description(self):
+        return api.portal.get_registry_record(
+            'cpskin.core.interfaces.ICPSkinSettings.show_description_on_themes')  # noqa
 
 
 class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):

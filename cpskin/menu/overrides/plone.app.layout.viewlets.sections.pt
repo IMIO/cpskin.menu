@@ -4,7 +4,8 @@
     <p class="hiddenStructure" i18n:translate="heading_sections">Navigation</p>
 
     <ul id="portal-globalnav"
-        tal:define="selected_tab python:view.selected_portal_tab"
+        tal:define="selected_tab python:view.selected_portal_tab;
+                    show_description context/@@show_description|nothing"
         ><tal:tabs tal:repeat="tab portal_tabs"
         ><li tal:define="tid tab/id;
                          index repeat/tab/index;
@@ -19,5 +20,14 @@
                                target tab/link_target|nothing;
                                tabindex index">
             Tab Name
+            </a><a href=""
+                   class="portal-tab-description"
+                   tal:content="tab/description|nothing"
+                   tal:condition="show_description"
+                   tal:attributes="href tab/url;
+                                   title tab/description|nothing;
+                                   target tab/link_target|nothing;
+                                   tabindex index">
+            Tab Description
             </a></li></tal:tabs></ul>
 </tal:sections>
