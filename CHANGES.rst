@@ -4,6 +4,10 @@ Changelog
 0.5.4 (unreleased)
 ------------------
 
+- First click on top menu item opens its submenu, 
+  second click on top menu item closes its submenu.
+  [gotcha]
+
 - Add 'menu-activated' class on opened menu <li>
   [laulaz]
 
