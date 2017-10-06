@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.4 (unreleased)
+0.6.0 (2017-10-06)
 ------------------
 
 - First click on top menu item opens its submenu, 
@@ -154,7 +154,7 @@ Changelog
 ----------------
 
 - Remove MenuTools viewlet (affinitic #6023)
-- Remove » in menu (affinitic #6025)
+- Remove Â» in menu (affinitic #6025)
 - Move media menu.css in menu_mobile.css [FBruynbroeck]
 
 
