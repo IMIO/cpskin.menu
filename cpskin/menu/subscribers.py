@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from zope.component.hooks import getSite
 from Acquisition import aq_chain
-from plone.uuid.interfaces import IUUID
 from cpskin.menu.browser.menu import invalidate_menu
+from plone import api
+from plone.uuid.interfaces import IUUID
+from zope.component.hooks import getSite
 
 
 def content_has_id(content):
@@ -23,5 +24,13 @@ def content_modified(content, event):
         return
     if not object_is_wrapped(content):
         return
+    if api.content.get_state(content) != 'published_and_shown':
+        return
+    portal_properties = api.portal.get_tool('portal_properties')
+    navtree_properties = portal_properties.get('navtree_properties', None)
+    if navtree_properties:
+        metaTypesNotToList = list(navtree_properties.metaTypesNotToList)
+        if getattr(content, 'portal_type', None) in metaTypesNotToList:
+            return
     if IUUID(getSite(), None) is not None:
         invalidate_menu(content)

@@ -4,7 +4,8 @@ Changelog
 0.6.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Invalidate menu only if obj is published_and_shown.
+  [bsuttor]
 
 
 0.6.1 (2017-12-20)
