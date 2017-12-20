@@ -16,13 +16,6 @@
     display: none;
 }
 
-.portal-globalnav-cpskinmenu .selected a,
-.portal-globalnav-cpskinmenu-tabs .selected a,
-.portal-globalnav-cpskinmenu .navTreeItemInPath > span a
-{
-    text-decoration: underline;
-}
-
 .portal-globalnav-cpskinmenu-tabs
 {
     margin-bottom: 1px;

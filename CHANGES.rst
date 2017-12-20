@@ -1,10 +1,13 @@
 Changelog
 =========
 
-0.6.1 (unreleased)
+0.6.1 (2017-12-20)
 ------------------
 
-- Nothing changed yet.
+- Delete underline to portal-globalnav-cpskinmenu .selected a,
+  .portal-globalnav-cpskinmenu-tabs .selected a,
+  .portal-globalnav-cpskinmenu .navTreeItemInPath > span a
+  [mgennart]
 
 
 0.6.0 (2017-10-06)
