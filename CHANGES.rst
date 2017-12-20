@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6.2 (unreleased)
+0.6.2 (2017-12-20)
 ------------------
 
 - Invalidate menu only if obj is published_and_shown.
