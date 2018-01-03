@@ -4,7 +4,8 @@ Changelog
 0.6.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Check WorkflowException when invalidate cache for testing.
+  [bsuttor]
 
 
 0.6.2 (2017-12-20)
@@ -26,7 +27,7 @@ Changelog
 0.6.0 (2017-10-06)
 ------------------
 
-- First click on top menu item opens its submenu, 
+- First click on top menu item opens its submenu,
   second click on top menu item closes its submenu.
   [gotcha]
 
@@ -142,7 +143,7 @@ Changelog
 0.4.2 (2015-08-18)
 ------------------
 
-- New way to get if multilingual site or not for vocabulary. Indeed, plone.app.multilingual 
+- New way to get if multilingual site or not for vocabulary. Indeed, plone.app.multilingual
   may be in buildout but not installed on Plone.
   [bsuttor]
 

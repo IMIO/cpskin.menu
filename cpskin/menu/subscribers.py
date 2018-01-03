@@ -3,6 +3,7 @@ from Acquisition import aq_chain
 from cpskin.menu.browser.menu import invalidate_menu
 from plone import api
 from plone.uuid.interfaces import IUUID
+from Products.CMFCore.WorkflowCore import WorkflowException
 from zope.component.hooks import getSite
 
 
@@ -24,7 +25,11 @@ def content_modified(content, event):
         return
     if not object_is_wrapped(content):
         return
-    if api.content.get_state(content) != 'published_and_shown':
+    try:
+        state = api.content.get_state(content)
+    except WorkflowException:
+        return
+    if state != 'published_and_shown':
         return
     portal_properties = api.portal.get_tool('portal_properties')
     navtree_properties = portal_properties.get('navtree_properties', None)
