@@ -4,7 +4,8 @@ Changelog
 0.6.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Bad release.
+  [bsuttor]
 
 
 0.6.3 (2018-01-03)
