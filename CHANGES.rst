@@ -1,7 +1,13 @@
 Changelog
 =========
 
-0.6.3 (unreleased)
+0.6.4 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
+0.6.3 (2018-01-03)
 ------------------
 
 - Check WorkflowException when invalidate cache for testing.
