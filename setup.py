@@ -56,5 +56,6 @@ setup(name='cpskin.menu',
               'z3c.unconfigure',
               'cpskin.menu',
               'cpskin.workflow',
+              'sc.social.like',
           ]},
       entry_points={})
