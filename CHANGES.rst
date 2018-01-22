@@ -10,7 +10,7 @@ Changelog
 0.6.5 (2018-01-22)
 ------------------
 
-- Try excpet `api.portal.get()`, there is no plone site when plone site is installed.
+- Try except `api.portal.get()`, there is no plone site when plone site is installed.
   [bsuttor]
 
 
