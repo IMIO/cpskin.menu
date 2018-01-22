@@ -4,7 +4,8 @@ Changelog
 0.6.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Try excpet `api.portal.get()`, there is no plone site when plone site is installed.
+  [bsuttor]
 
 
 0.6.4 (2018-01-03)

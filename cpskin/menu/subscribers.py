@@ -3,7 +3,6 @@ from Acquisition import aq_chain
 from cpskin.menu.browser.menu import invalidate_menu
 from plone import api
 from plone.uuid.interfaces import IUUID
-from Products.CMFCore.WorkflowCore import WorkflowException
 from zope.component.hooks import getSite
 
 
@@ -27,7 +26,7 @@ def content_modified(content, event):
         return
     try:
         state = api.content.get_state(content)
-    except WorkflowException:
+    except:
         return
     if state != 'published_and_shown':
         return
