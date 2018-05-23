@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-import unittest2 as unittest
-from zope.component import queryUtility
-from plone.uuid.interfaces import IUUID
-from plone import api
-from cpskin.menu.testing import CPSKIN_MENU_INTEGRATION_TESTING
-from cpskin.menu.browser.menu import (CpskinMenuViewlet,
-                                      invalidate_menu)
-from plone.memoize.interfaces import ICacheChooser
 from cpskin.menu.browser.menu import cache_key_desktop
+from cpskin.menu.browser.menu import CpskinMenuViewlet
+from cpskin.menu.browser.menu import invalidate_menu
+from cpskin.menu.testing import CPSKIN_MENU_INTEGRATION_TESTING
+from plone import api
+from plone.app.testing import applyProfile
+from plone.memoize.interfaces import ICacheChooser
+from plone.uuid.interfaces import IUUID
+from zope.component import queryUtility
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
+
+import unittest
 
 
 def cache_exist(viewlet):
@@ -29,6 +33,14 @@ class TestMenu(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
+        applyProfile(self.portal, 'cpskin.workflow:testing')
+        self.portal_workflow = self.portal.portal_workflow
+        self.portal_workflow.setDefaultChain('cpskin_workflow')
+        self.portal_workflow.setChainForPortalTypes(
+            ('Folder',), ('cpskin_workflow',)
+        )
+        item = self.portal.restrictedTraverse('commune/services_communaux')
+        api.content.transition(obj=item, transition='publish_and_show')
         empty_cache()
 
     def tearDown(self):
@@ -111,14 +123,13 @@ class TestMenu(unittest.TestCase):
         item = self.portal.restrictedTraverse('commune/services_communaux')
         viewlet = CpskinMenuViewlet(item, self.request, None, None)
         viewlet.update()
-
         self.assertEqual(cache_exist(viewlet), False)
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
         item.setTitle('Test Cache Invalidation')
-        item.processForm()
+        notify(ObjectModifiedEvent(item))
         self.assertEqual(cache_exist(viewlet), False)
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
@@ -135,12 +146,13 @@ class TestMenu(unittest.TestCase):
 
     def test_object_publication_invalidates_menu(self):
         item = self.portal.restrictedTraverse('commune/services_communaux')
+        api.content.transition(item, 'back_to_created')
         viewlet = CpskinMenuViewlet(item, self.request, None, None)
         viewlet.update()
         self.assertEqual(cache_exist(viewlet), False)
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
-        api.content.transition(item, 'publish')
+        api.content.transition(item, 'publish_and_show')
         self.assertEqual(cache_exist(viewlet), False)
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
@@ -164,6 +176,8 @@ class TestMenu(unittest.TestCase):
         item = self.portal.restrictedTraverse('commune/services_communaux')
         commune = self.portal.restrictedTraverse('commune')
         loisirs = self.portal.restrictedTraverse('loisirs')
+        api.content.transition(obj=commune, transition='publish_and_show')
+        api.content.transition(obj=loisirs, transition='publish_and_show')
         viewlet = CpskinMenuViewlet(commune, self.request, None, None)
         viewlet.update()
         self.assertEqual(cache_exist(viewlet), False)
@@ -195,6 +209,7 @@ class TestMenu(unittest.TestCase):
         viewlet.superfish_portal_tabs()
         self.assertEqual(cache_exist(viewlet), True)
         api.content.rename(item, new_id='sc')
+        notify(ObjectModifiedEvent(item))
         viewlet.update()
         self.assertEqual(cache_exist(viewlet), False)
         viewlet.superfish_portal_tabs()

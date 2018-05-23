@@ -63,11 +63,21 @@ class CPSkinMenuPloneWithPackageLayer(PloneWithPackageLayer):
 
     load_page_menu = False
 
+    def setUpZope(self, app, configurationContext):
+        super(CPSkinMenuPloneWithPackageLayer,
+              self).setUpZope(app, configurationContext)
+        z2.installProduct(app, 'Products.DateRecurringIndex')
+        import plone.app.contenttypes
+        self.loadZCML(package=plone.app.contenttypes)
+
     def setUpPloneSite(self, portal):
         if not memcached_launched():
-            raise EnvironmentError("Memcached must be launched")
-
+            raise EnvironmentError('Memcached must be launched')
         applyProfile(portal, 'cpskin.menu:testing')
+
+        applyProfile(portal, 'cpskin.workflow:testing')
+        portal.portal_workflow.setDefaultChain('cpskin_workflow')
+        # import pdb; pdb.set_trace()
         catalog = getToolByName(portal, 'portal_catalog')
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
@@ -187,40 +197,40 @@ class CPSkinMenuLoadPage(CPSkinMenuPloneWithPackageLayer):
 
 
 CPSKIN_MENU_FIXTURE = CPSkinMenuPloneWithPackageLayer(
-    name="CPSKIN_MENU_FIXTURE",
-    zcml_filename="testing.zcml",
+    name='CPSKIN_MENU_FIXTURE',
+    zcml_filename='testing.zcml',
     zcml_package=cpskin.menu,
-    gs_profile_id="cpskin.menu:testing")
+    gs_profile_id='cpskin.menu:testing')
 
 CPSKIN_MENU_FIXTURE_LOAD_PAGE = CPSkinMenuLoadPage(
-    name="CPSKIN_MENU_FIXTURE_LOAD_PAGE",
-    zcml_filename="testing.zcml",
+    name='CPSKIN_MENU_FIXTURE_LOAD_PAGE',
+    zcml_filename='testing.zcml',
     zcml_package=cpskin.menu,
-    gs_profile_id="cpskin.menu:testing")
+    gs_profile_id='cpskin.menu:testing')
 
 
 CPSKIN_MENU_INTEGRATION_TESTING = IntegrationTesting(
-    name="CPSKIN_MENU_INTEGRATION_TESTING",
+    name='CPSKIN_MENU_INTEGRATION_TESTING',
     bases=(CPSKIN_MENU_FIXTURE,))
 
 
 CPSKIN_MENU_LOAD_PAGE_INTEGRATION_TESTING = IntegrationTesting(
-    name="CPSKIN_MENU_LOAD_PAGE_INTEGRATION_TESTING",
+    name='CPSKIN_MENU_LOAD_PAGE_INTEGRATION_TESTING',
     bases=(CPSKIN_MENU_FIXTURE_LOAD_PAGE,))
 
 
 CPSKIN_MENU_ROBOT_TESTING = FunctionalTesting(
     bases=(CPSKIN_MENU_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE,
            z2.ZSERVER_FIXTURE),
-    name="cpskin.menu:Robot")
+    name='cpskin.menu:Robot')
 
 CPSKIN_MENU_ROBOT_TESTING_LOAD_PAGE = FunctionalTesting(
     bases=(CPSKIN_MENU_FIXTURE_LOAD_PAGE, AUTOLOGIN_LIBRARY_FIXTURE,
            z2.ZSERVER_FIXTURE),
-    name="cpskin.menu:Robot load page")
+    name='cpskin.menu:Robot load page')
 
 
 NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING = FunctionalTesting(
     bases=(CPSKIN_MENU_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE,
            z2.ZSERVER_FIXTURE, NO_MEMCACHED),
-    name="NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING")
+    name='NO_MEMCACHED_CPSKIN_MENU_ROBOT_TESTING')

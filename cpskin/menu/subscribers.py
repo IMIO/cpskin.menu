@@ -28,6 +28,9 @@ def content_modified(content, event):
         state = api.content.get_state(content)
     except:
         return
+
+    # if content.id == 'services_communaux' and state == 'published':
+    #     import pdb; pdb.set_trace()
     if state != 'published_and_shown':
         return
     portal_properties = api.portal.get_tool('portal_properties')
