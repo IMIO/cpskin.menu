@@ -1,3 +1,25 @@
+# ============================================================================
+# ROBOT TESTS
+# ============================================================================
+#
+# Run this robot test stand-alone:
+#
+#  $ bin/test -s cpskin.menu -t test_banner.robot --all
+#
+# Run this robot test with robot server (which is faster):
+#
+# 1) Start robot server:
+#
+# $ bin/robot-server --reload-path cpskin cpskin.menu.testing.CPSKIN_MENU_ROBOT_TESTING
+#
+# 2) Run robot tests:
+#
+# $ bin/robot cpskin/menu/tests/robot/test_direct_access.robot
+#
+# See the http://docs.plone.org for further details (search for robot
+# framework).
+#
+# ============================================================================
 *** Settings ***
 
 Resource  plone/app/robotframework/keywords.robot

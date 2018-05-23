@@ -118,7 +118,8 @@ Item page is loaded
     Set suite variable  ${CURRENT_ID}  loisirs
 
 Click outside menu
-    Click element  css=#parent-fieldname-title
+    # Debug
+    Click element  css=#portaltab-loisirs a
 
 Menu is not hidden
     Menu level 2 shown with corresponding content

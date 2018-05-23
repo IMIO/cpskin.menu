@@ -36,9 +36,11 @@ ${FF_PROFILE_DIR}  ${CURDIR}/firefoxmobileprofile
 *** Test cases ***
 
 Test desktop menu not visible
+    Set Window Size  400  700
     Element Should Not Be Visible  css=ul#portal-globalnav li#portaltab-commune
 
 Test menu mobile
+    Set Window Size  400  700
     Element should not be visible  css=ul.submenu-level-1
     Click Element       id=mobnav-btn
     Location Should Be  ${PLONE_URL}
@@ -60,6 +62,7 @@ Test menu mobile
 
 Test loading with 3 levels
     [tags]  current
+    Set Window Size  400  700
     Click Element       id=mobnav-btn
     Click Loisirs in menu
     Location Should Be  ${PLONE_URL}
@@ -69,6 +72,7 @@ Test loading with 3 levels
     Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/bibliotheques
 
 Test direct access link
+    Set Window Size  400  700
     Click Element  id=mobnav-btn
     Click Loisirs in menu
     Location Should Be  ${PLONE_URL}
@@ -78,6 +82,7 @@ Test direct access link
     Location Should Be  ${PLONE_URL}/loisirs/art_et_culture/artistes/rockers/john_lennon
 
 Test menu after access from URL root
+    Set Window Size  400  700
     Go to  ${PLONE_URL}
     Element should not be visible  css=#title-level-1
     Element should not be visible  css=#title-level-2
@@ -85,35 +90,40 @@ Test menu after access from URL root
     Element should not be visible  css=#title-level-4
 
 Test menu after access from URL loisirs
+    Set Window Size  400  700
     Go to  ${PLONE_URL}/loisirs
     Element should not be visible  css=#title-level-1
-    Element should be visible  css=#title-level-2
+    Element should not be visible  css=#title-level-2
     Element should not be visible  css=#title-level-3
     Element should not be visible  css=#title-level-4
 
 Test menu after access from URL art_et_culture
+    Set Window Size  400  700
     Go to  ${PLONE_URL}/loisirs/art_et_culture
     Element should not be visible  css=#title-level-1
-    Element should be visible  css=#title-level-2
-    Element should be visible  css=#title-level-3
+    Element should not be visible  css=#title-level-2
+    Element should not be visible  css=#title-level-3
     Element should not be visible  css=#title-level-4
 
 Test menu after access from URL artistes
+    Set Window Size  400  700
     Go to  ${PLONE_URL}/loisirs/art_et_culture/artistes
     Element should not be visible  css=#title-level-1
-    Element should be visible  css=#title-level-2
-    Element should be visible  css=#title-level-3
-    Element should be visible  css=#title-level-4
+    Element should not be visible  css=#title-level-2
+    Element should not be visible  css=#title-level-3
+    Element should not be visible  css=#title-level-4
 
 Test menu after access from URL abba
+    Set Window Size  400  700
     Go to  ${PLONE_URL}/loisirs/art_et_culture/artistes/abba
     Element should not be visible  css=#title-level-1
-    Element should be visible  css=#title-level-2
-    Element should be visible  css=#title-level-3
-    Element should be visible  css=#title-level-4
+    Element should not be visible  css=#title-level-2
+    Element should not be visible  css=#title-level-3
+    Element should not be visible  css=#title-level-4
 
 *** Keywords ***
 
 Click Loisirs in menu
-    Wait until element is visible  css=ul.submenu-level-1 li:nth-child(7)
-    Click Element  css=ul.submenu-level-1 li:nth-child(7)
+    # Debug
+    Wait until element is visible  css=ul.submenu-level-1 li:nth-child(6)
+    Click Element  css=ul.submenu-level-1 li:nth-child(6)
