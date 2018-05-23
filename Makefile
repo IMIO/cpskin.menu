@@ -9,7 +9,7 @@ bin/python:
 	touch $@
 
 bin/buildout: buildout.cfg bin/python
-	./bin/pip install zc.buildout==2.9.3
+	./bin/pip install -r requirements.txt
 	touch $@
 
 buildout: bin/buildout
