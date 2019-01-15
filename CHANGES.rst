@@ -4,7 +4,9 @@ Changelog
 0.6.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Handle special cases when we don't get a request at ObjectAddedEvent
+  (example : when an object is added at Zope startup)
+  [laulaz]
 
 
 0.6.5 (2018-01-22)

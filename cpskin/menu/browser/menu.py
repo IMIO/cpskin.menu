@@ -72,7 +72,9 @@ cached_method_id = 'cpskin.menu.browser.menu.superfish_portal_tabs'
 def invalidate_menu(context):
     request = getRequest()
     if request is None:  # when plone site is created
-        request = context.REQUEST
+        request = getattr(context, 'REQUEST', None)
+        if request is None:  # when zope is starting
+            return
     viewlet = CpskinMenuViewlet(context, request, None, None)
     try:
         dependencies = get_menu_dependencies_desktop(viewlet.superfish_portal_tabs, viewlet)
