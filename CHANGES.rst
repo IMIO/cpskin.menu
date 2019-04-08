@@ -4,7 +4,8 @@ Changelog
 0.6.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Invalidate menu cache when current, old or new workflow state is published_and_shown.
+  [bsuttor]
 
 
 0.6.6 (2019-02-11)

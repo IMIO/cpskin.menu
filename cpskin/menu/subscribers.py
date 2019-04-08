@@ -25,13 +25,18 @@ def content_modified(content, event):
     if not object_is_wrapped(content):
         return
     try:
-        state = api.content.get_state(content)
+        current_state = api.content.get_state(content)
     except:
         return
-
-    # if content.id == 'services_communaux' and state == 'published':
-    #     import pdb; pdb.set_trace()
-    if state != 'published_and_shown':
+    new_state = None
+    old_state = None
+    if getattr(event, 'new_state', None):
+        new_state = event.new_state.id
+    if getattr(event, 'old_state', None):
+        old_state = event.old_state.id
+    # published_and_hidden added to invalidate menu no more show
+    # if state not in ['published_and_shown', 'published_and_hidden']:
+    if'published_and_shown' not in [new_state, old_state, current_state]:
         return
     portal_properties = api.portal.get_tool('portal_properties')
     navtree_properties = portal_properties.get('navtree_properties', None)
