@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6.7 (unreleased)
+0.6.7 (2019-04-08)
 ------------------
 
 - Invalidate menu cache when current, old or new workflow state is published_and_shown.
