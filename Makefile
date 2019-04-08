@@ -1,14 +1,11 @@
 #!/usr/bin/make
 .PHONY: buildout cleanall test instance
 
-bootstrap.py:
-	wget http://downloads.buildout.org/2/bootstrap.py
-
-bin/python:
-	virtualenv-2.7 .
+bin/pip:
+	if [ -f /usr/bin/virtualenv-2.7 ] ; then virtualenv-2.7 .;else virtualenv -p python2.7 .;fi
 	touch $@
 
-bin/buildout: buildout.cfg bin/python
+bin/buildout: bin/pip
 	./bin/pip install -r requirements.txt
 	touch $@
 
