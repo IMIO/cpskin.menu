@@ -107,7 +107,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
     ADD_PORTAL_TABS = True
 
     # this template is used to generate a single menu item.
-    _menu_item = u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span><a href="%(url)s" title="%(description)s" id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
+    _menu_item = u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span><a href="%(url)s" target="%(target)s" title="%(description)s" id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
 
     # this template is used to generate a menu container
     _submenu_item = u"""<ul%(id)s class="%(classname)s">%(close)s%(menuitems)s</ul>"""
@@ -293,7 +293,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             classes.append('lastItem')
 
         brain = item['item']
-
+        target = '_self'
         if type(brain) == VirtualCatalogBrain:
             # translate our portal_actions and use their id instead of the
             # url
@@ -306,6 +306,11 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             desc = safe_unicode(brain.Description)
             url = brain.getPath()
             item_id = brain.getURL()[len(self.site_url):]
+            if brain.Type == 'Link':
+                obj = brain.getObject()
+                if hasattr(obj, 'target_blank'):
+                    target = '_blank' if obj.target_blank is True else '_self'
+
 
         item_id = item_id.strip('/').replace('/', '-')
 
@@ -395,6 +400,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             level=menu_level,
             title=self.html_escape(title),
             description=self.html_escape(desc),
+            target=target,
             url=item['item'].getURL(),
             classnames=len(classes) and u' class="%s"' % (" ".join(classes)) or u"",
             selected=item['currentItem'] and u' class="selected"' or u"",
