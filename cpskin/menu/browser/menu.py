@@ -285,6 +285,8 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         return submenu
 
     def _menuitem(self, item, tabindex, first=False, last=False, menu_level=0):
+        portal_membership = api.portal.get_tool('portal_membership')
+        can_edit = portal_membership.checkPermission('Modify portal content', self.context)
         classes = []
 
         if first:
@@ -306,7 +308,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             desc = safe_unicode(brain.Description)
             url = brain.getPath()
             item_id = brain.getURL()[len(self.site_url):]
-            if brain.Type == 'Link':
+            if brain.Type == 'Link' and not can_edit:
                 obj = brain.getObject()
                 if hasattr(obj, 'target_blank'):
                     target = '_blank' if obj.target_blank is True else '_self'
