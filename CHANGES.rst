@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6.8 (unreleased)
+0.6.8 (2019-07-16)
 ------------------
 
 - Support of target_blank / target = "_blank" href property on a link portal_type.
