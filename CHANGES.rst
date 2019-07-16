@@ -6,6 +6,7 @@ Changelog
 
 - Support of target_blank / target = "_blank" href property on a link portal_type.
   . Avoid opening target in a blank windows when user have permission to modify portal content.
+  . update test
   [cboulanger]
 
 
