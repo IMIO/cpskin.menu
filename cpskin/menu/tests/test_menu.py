@@ -51,7 +51,7 @@ class TestMenu(unittest.TestCase):
         viewlet.update()
         self.assertTrue(viewlet.is_homepage)
         menus = viewlet.superfish_portal_tabs()
-        self.assertEqual(len(menus), 4754)
+        self.assertEqual(len(menus), 4994)
 
     def test_menu_cache_key_on_root(self):
         viewlet = CpskinMenuViewlet(self.portal, self.request, None, None)
