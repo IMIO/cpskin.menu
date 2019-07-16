@@ -285,8 +285,6 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         return submenu
 
     def _menuitem(self, item, tabindex, first=False, last=False, menu_level=0):
-        portal_membership = api.portal.get_tool('portal_membership')
-        can_edit = portal_membership.checkPermission('Modify portal content', self.context)
         classes = []
 
         if first:
@@ -294,7 +292,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         if last:
             classes.append('lastItem')
 
-        brain = item['item']
+        brain = item.get('item')
         target = '_self'
         if type(brain) == VirtualCatalogBrain:
             # translate our portal_actions and use their id instead of the
@@ -308,10 +306,14 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
             desc = safe_unicode(brain.Description)
             url = brain.getPath()
             item_id = brain.getURL()[len(self.site_url):]
-            if brain.Type == 'Link' and not can_edit:
+            if brain.Type == 'Link':
                 obj = brain.getObject()
-                if hasattr(obj, 'target_blank'):
-                    target = '_blank' if obj.target_blank is True else '_self'
+                current_user = api.user.get_current()
+                can_edit = current_user.has_permission('Edit', brain)
+                if not can_edit:
+                    obj = brain.getObject()
+                    if hasattr(obj, 'target_blank'):
+                        target = '_blank' if obj.target_blank is True else '_self'
 
 
         item_id = item_id.strip('/').replace('/', '-')
