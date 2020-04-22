@@ -2,7 +2,7 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     lang="en"
-    i18n:domain="cpskin.menu"
+    i18n:domain="cpskin"
     tal:omit-tag="">
 
 <h5 class="hiddenStructure" i18n:domain="plone" i18n:translate="heading_sections">Navigation</h5>
