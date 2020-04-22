@@ -9,7 +9,7 @@
 <ul tal:replace="structure python: view.superfish_portal_tabs()" />
 
 <a href="#" id="search-btn"></a>
-<div id="mobnav-btn">Menu de navigation</div>
+<div id="mobnav-btn" i18n:translate="">Menu de navigation</div>
 <div id="advanced-breadcrumbs"></div>
 <ul tal:replace="structure python: view.superfish_portal_tabs_mobile()" />
 <div class="visualClear"><!-- --></div>
