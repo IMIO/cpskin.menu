@@ -4,7 +4,11 @@ Changelog
 0.6.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Moved these translations into cpskin.locales package
+  [macagua]
+
+- Add more improvements for i18n support
+  [macagua]
 
 
 0.6.8 (2019-07-16)

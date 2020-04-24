@@ -6,3 +6,4 @@
 - Gillian Sampont [Affinitic]
 - Giacomo Spettoli [RedTurtle]
 - Benoît Suttor [IMIO]
+- Leonardo J. Caballero G. [Plone Venezuela]
