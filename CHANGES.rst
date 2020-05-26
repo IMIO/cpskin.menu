@@ -4,6 +4,9 @@ Changelog
 0.6.9 (unreleased)
 ------------------
 
+- Improve accessibility by opening first level menu links on enter
+  [mpeeters]
+
 - Moved these translations into cpskin.locales package
   [macagua]
 

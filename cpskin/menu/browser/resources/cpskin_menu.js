@@ -2,8 +2,13 @@ $( document ).ready(function() {
 
     var clickable_menu_selector = '#portal-globalnav li:not(#portaltab-index_html) a';
     $(clickable_menu_selector).each(function(){
+        $(this).on('keydown', function(e) {
+          if(e.which == 13) {
+            window.location.href = $(this).attr('href');
+            e.preventDefault();
+          }
+        });
         $(this).click(function() {
-            
             var activated = $(this).hasClass('activated');
             var menu_id = this.parentNode.id.replace('portaltab-', '');
 
