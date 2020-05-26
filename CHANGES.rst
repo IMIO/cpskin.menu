@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6.9 (unreleased)
+0.6.9 (2020-05-26)
 ------------------
 
 - Improve accessibility by opening first level menu links on enter
