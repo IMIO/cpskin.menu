@@ -17,8 +17,7 @@
                tal:content="tab/name"
                tal:attributes="href tab/url;
                                title tab/description|nothing;
-                               target tab/link_target|nothing;
-                               tabindex index">
+                               target tab/link_target|nothing">
             Tab Name
             </a><a href=""
                    class="portal-tab-description"
@@ -26,8 +25,7 @@
                    tal:condition="show_description"
                    tal:attributes="href tab/url;
                                    title tab/description|nothing;
-                                   target tab/link_target|nothing;
-                                   tabindex index">
+                                   target tab/link_target|nothing">
             Tab Description
             </a></li></tal:tabs></ul>
 </tal:sections>

@@ -4,7 +4,8 @@ Changelog
 0.6.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Remove tabindex on globalnav
+  [mpeeters]
 
 
 0.6.9 (2020-05-26)
