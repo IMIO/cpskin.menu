@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.6.10 (unreleased)
--------------------
+0.7.0b1 (2020-05-28)
+--------------------
 
 - WEB-3329: Set the focus on the submenu when the first level is clicked
   [mpeeters]
