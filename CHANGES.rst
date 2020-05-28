@@ -4,6 +4,12 @@ Changelog
 0.6.10 (unreleased)
 -------------------
 
+- WEB-3329: Set the focus on the submenu when the first level is clicked
+  [mpeeters]
+
+- WEB-3329: Revert Improve accessibility by opening first level menu links on enter
+  [mpeeters]
+
 - Remove tabindex on globalnav
   [mpeeters]
 
@@ -11,7 +17,7 @@ Changelog
 0.6.9 (2020-05-26)
 ------------------
 
-- Improve accessibility by opening first level menu links on enter
+- WEB-3329: Improve accessibility by opening first level menu links on enter
   [mpeeters]
 
 - Moved these translations into cpskin.locales package
