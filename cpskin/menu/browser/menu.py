@@ -107,7 +107,11 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
     ADD_PORTAL_TABS = True
 
     # this template is used to generate a single menu item.
-    _menu_item = u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span><a href="%(url)s" target="%(target)s" title="%(description)s" id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
+    _menu_item = (
+        u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span>"""
+        u"""<a href="%(url)s" target="%(target)s" title="%(description)s" """
+        u"""id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
+    )
 
     # this template is used to generate a menu container
     _submenu_item = u"""<ul%(id)s class="%(classname)s">%(close)s%(menuitems)s</ul>"""
@@ -414,14 +418,8 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
         """
         Calculate tabindex of actual context
         """
-        navigation_root = getNavigationRoot(self.context)
-        tabindex = 1
-        for brain in navigation_root:
-            menu_object = brain.getObject()
-            if menu_object == self.context:
-                break
-            tabindex += 1
-        return tabindex
+        # For accessibility tabindex must always be 0
+        return 0
 
     def _is_in_theme(self):
         """

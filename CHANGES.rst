@@ -4,7 +4,8 @@ Changelog
 0.7.0b2 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- WEB-3329: tabindex must be always equal to zero to respect natural order for accessibility
+  [mpeeters]
 
 
 0.7.0b1 (2020-05-28)
