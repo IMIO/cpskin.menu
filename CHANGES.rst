@@ -4,6 +4,12 @@ Changelog
 0.7.0b2 (unreleased)
 --------------------
 
+- WEB-3329: Improve accessibility for menu by :
+  - Setting the focus on the first element of the submenu
+  - When using back tab or upper arrow on first submenu entry, setting the focus back to the first navigation level
+  - When using tab or down arrow on last submenu entry, setting the focus to the next entry of the first navigation level
+  [mpeeters]
+
 - WEB-3329: tabindex must be always equal to zero to respect natural order for accessibility
   [mpeeters]
 
