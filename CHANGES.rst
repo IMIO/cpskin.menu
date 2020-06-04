@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.0b2 (unreleased)
+0.7.0b2 (2020-06-04)
 --------------------
 
 - WEB-3329: Improve accessibility for menu by :
