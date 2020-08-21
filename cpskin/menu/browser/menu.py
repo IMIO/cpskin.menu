@@ -108,7 +108,7 @@ class CpskinMenuViewlet(common.GlobalSectionsViewlet, SuperFishViewlet):
 
     # this template is used to generate a single menu item.
     _menu_item = (
-        u"""<li id="%(menu_id)s-%(id)s"%(classnames)s><span>"""
+        u"""<li id="%(menu_id)s-%(id)s"%(classnames)s aria-expanded="false"><span>"""
         u"""<a href="%(url)s" target="%(target)s" title="%(description)s" """
         u"""id="%(id)s" tabindex="%(tabindex)s">%(title)s</a></span>%(submenu)s</li>"""
     )

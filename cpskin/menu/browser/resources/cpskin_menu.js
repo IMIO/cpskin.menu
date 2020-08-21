@@ -2,6 +2,8 @@ $( document ).ready(function() {
 
     var clickable_menu_selector = '#portal-globalnav li:not(#portaltab-index_html) a';
     $(clickable_menu_selector).each(function(){
+        $(this).parent('li').attr('aria-expanded', 'False');
+
         var set_focus = function(element) {
           element.get(0).focus();
         };
@@ -71,6 +73,7 @@ $( document ).ready(function() {
             var submenu_id = '#portal-globalnav-cpskinmenu-' + menu_id;
 
             if (!activated) {
+                $(this).parent('li').attr('aria-expanded', 'True');
                 $(clickable_menu_selector).each(function(){
                     $(this).removeClass('activated');
                     $(this).parent('li').removeClass('menu-activated');
@@ -83,11 +86,13 @@ $( document ).ready(function() {
                 });
                 $(submenu_id).show();
                 set_focus($(submenu_id + " .firstItem a").first());
+                $(submenu_id + " .firstItem").attr('aria-expanded', 'True');
                 detect_go_back($(submenu_id + " .firstItem a").first());
                 detect_go_next($(submenu_id + " .lastItem a").last());
             } else {
                 $(this).removeClass('activated');
                 $(this).parent('li').removeClass('menu-activated');
+                $(this).parent('li').attr('aria-expanded', 'True');
                 $(submenu_id).hide();
             }
             return false;

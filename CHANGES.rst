@@ -4,7 +4,8 @@ Changelog
 0.7.0b3 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- WEB-3355 : Improve menu accessibility by adding `aria-expanded` property
+  [mpeeters]
 
 
 0.7.0b2 (2020-06-04)

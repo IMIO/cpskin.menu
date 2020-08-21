@@ -163,7 +163,20 @@
         setupInPathAndSelectedItems();
 
         //initialize superfish
-        $('ul.sf-menu').superfish();
+        $('ul.sf-menu').superfish({
+          onShow: function() {
+            var entry = $(this).parent('li');
+            if (entry) {
+              entry.attr('aria-expanded', 'True');
+            }
+          },
+          onHide: function() {
+            var entry = $(this).parent('li');
+            if (entry) {
+              entry.attr('aria-expanded', 'False');
+            }
+          },
+        });
 
         //initialize drop down menu
         var $menu = $('#portal-globalnav-cpskinmenu-mobile');
