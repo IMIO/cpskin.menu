@@ -4,7 +4,8 @@ Changelog
 0.7.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- New release (Previous failed)
+  [boulch]
 
 
 0.7.0b3 (2020-08-24)
