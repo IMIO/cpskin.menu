@@ -4,7 +4,8 @@ Changelog
 0.7.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Release.
+  [bsuttor]
 
 
 0.7.0 (2020-08-24)
