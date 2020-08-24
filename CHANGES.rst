@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.0b3 (unreleased)
+0.7.0b3 (2020-08-24)
 --------------------
 
 - WEB-3355 : Improve menu accessibility by adding `aria-expanded` property
