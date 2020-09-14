@@ -92,7 +92,7 @@ $( document ).ready(function() {
             } else {
                 $(this).removeClass('activated');
                 $(this).parent('li').removeClass('menu-activated');
-                $(this).parent('li').attr('aria-expanded', 'True');
+                $(this).parent('li').attr('aria-expanded', 'False');
                 $(submenu_id).hide();
             }
             return false;

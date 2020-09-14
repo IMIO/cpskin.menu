@@ -4,7 +4,8 @@ Changelog
 0.7.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- WEB-3355: Fix `aria-expanded` property when the menu is closed
+  [mpeeters]
 
 
 0.7.1 (2020-08-24)
