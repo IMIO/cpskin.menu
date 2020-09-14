@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.2 (unreleased)
+0.7.2 (2020-09-14)
 ------------------
 
 - WEB-3355: Fix `aria-expanded` property when the menu is closed
